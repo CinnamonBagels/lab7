@@ -19,7 +19,9 @@ var models   = require('./models');
 var local_database_name = 'lab7';
 var local_database_uri  = 'mongodb://localhost/' + local_database_name
 var database_uri = process.env.MONGOLAB_URI || local_database_uri
-mongoose.connect(database_uri);
+mongoose.connect(database_uri, function(err) {
+  console.log(err);
+});
 
 
 // Do the initialization here
